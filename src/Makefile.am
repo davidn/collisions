@@ -12,7 +12,11 @@ AM_CFLAGS =\
 	 -g
 
 bin_PROGRAMS = collisions \
-	interpolate
+	interpolate\
+	gas
+
+gas_SOURCES = \
+	gas.cc
 
 interpolate_SOURCES = \
 	interpolate.cc\
@@ -28,15 +32,8 @@ collisions_LDFLAGS =
 
 collisions_LDADD = 
 
-plot_SCRIPTS = 
-
-plot.sh_SCRIPTS = 
-
 plot_DATA = \
 	plot
 
 plotdir = \
 	$(pkgdatadir)
-
-plotd_SCRIPTS = 
-

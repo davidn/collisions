@@ -5,11 +5,15 @@ unset border
 set zeroaxis 7
 set size square
 
-tmax=1000
+tmax=10
 
-size=1000
+size=1
 
 set xrange [-size:size]
 set yrange [tmax:0]
 
-plot '/tmp/bar' u 2:1 w l, '/tmp/bar' u 4:1 w l;
+set macros
+
+s = "w l title '', '/tmp/bar' u"
+
+plot '/tmp/bar' u 2:1 @s 4:1 @s 6:1 @s 8:1 @s 10:1 @s 12:1 @s 14:1 @s 16:1 @s 18:1 @s 20:1 @s 22:1 @s 24:1 w l t ""

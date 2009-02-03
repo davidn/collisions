@@ -11,7 +11,13 @@ AM_CFLAGS =\
 	 -Wall\
 	 -g
 
-bin_PROGRAMS = collisions
+bin_PROGRAMS = collisions \
+	interpolate
+
+interpolate_SOURCES = \
+	interpolate.cc\
+	particle.cc  \
+	particle.h
 
 collisions_SOURCES = \
 	main.cc     \

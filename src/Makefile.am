@@ -14,7 +14,9 @@ AM_CFLAGS =\
 bin_PROGRAMS = collisions
 
 collisions_SOURCES = \
-	main.cc
+	main.cc     \
+	particle.h     \
+	particle.cc
 
 collisions_LDFLAGS = 
 

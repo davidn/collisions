@@ -11,39 +11,11 @@
 #include <vector>
 #include <getopt.h>
 
+#include "particle.h"
+
 #define TMAX_DEFAULT 1000
 
 using namespace std;
-
-class particle
-{
-	public:
-		double im;// inverse mass
-		double x; // position
-		double r; // radius
-		double v; // velocity
-		
-		double momentum(); // not actually used
-		double energy();   //     "      "
-};
-
-ostream & operator << (ostream &self, const particle &part)
-{
-	 self << part.x << " " << part.v;
-}
-
-istream & operator>> (istream &self, particle &part)
-{
-		self >> part.im >> part.r >> part.x >> part.v;
-}
-
-particle & operator << (particle & self, particle &other )
-{
-	double zmf_v = (self.v * other.im + other.v * self.im) / (self.im + other.im);
-	
-	self.v = 2 * zmf_v - self.v;
-	other.v = 2 * zmf_v - other.v;
-}
 
 void iterate (double tmax, vector<particle> particles, ostream & output)
 {
@@ -140,14 +112,4 @@ int main(int argc, char ** argv)
 	
 	// end
 	exit(0);
-}
-
-double particle::momentum()
-{
-	return v / im;
-}
-
-double particle::energy()
-{
-	return v * v / 2 / im;
 }

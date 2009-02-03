@@ -14,6 +14,8 @@ collisionsdoc_DATA = \
 
 EXTRA_DIST = $(collisionsdoc_DATA)
 
+plot_SCRIPTS = 
+
 # Copy all the spec files. Of cource, only one is actually used.
 dist-hook:
 	for specfile in *.spec; do \

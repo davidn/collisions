@@ -28,3 +28,15 @@ collisions_LDFLAGS =
 
 collisions_LDADD = 
 
+plot_SCRIPTS = 
+
+plot.sh_SCRIPTS = 
+
+plot_DATA = \
+	plot
+
+plotdir = \
+	$(pkgdatadir)
+
+plotd_SCRIPTS = 
+

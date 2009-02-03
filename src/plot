@@ -1,0 +1,15 @@
+#!/usr/bin/gnuplot -persist
+
+#set term gif animate size
+unset border
+set zeroaxis 7
+set size square
+
+tmax=1000
+
+size=1000
+
+set xrange [-size:size]
+set yrange [tmax:0]
+
+plot '/tmp/bar' u 2:1 w l, '/tmp/bar' u 4:1 w l;

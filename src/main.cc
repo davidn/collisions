@@ -19,7 +19,9 @@ using namespace std;
 
 void iterate (double tmax, vector<particle> particles, ostream & output)
 {
-	vector<particle>::iterator outer,inner,collider,collidee;
+	vector<particle>::iterator outer,inner;
+	vector<particle*> colliders,collidees;
+	vector<particle*>::iterator collider,collidee;
 	double tnext;
 	double tthis;
 	double time;
@@ -30,16 +32,21 @@ void iterate (double tmax, vector<particle> particles, ostream & output)
 		for( outer = particles.begin() ; outer != particles.end(); outer ++)
 		{
 			output << *outer << "\t";
-			for (inner = particles.begin(); inner != particles.end(); inner ++)
+			for (inner = outer; inner != particles.end(); inner ++)
 			{
 				if (inner != outer)
 				{
-					tthis = (outer->r + inner->r + outer->x - inner->x)/(inner->v - outer->v);
+					tthis = (outer->x - inner->x)/(inner->v - outer->v);
 					if((tthis < tnext) && (tthis > 0))
 					{
+						colliders.clear();
+						collidees.clear();
 						tnext = tthis;
-						collider = outer;
-						collidee = inner;
+					}
+					if(tthis == tnext)
+					{
+						colliders.push_back(& *outer);
+						collidees.push_back(& *inner);
 					}
 				}
 			}
@@ -52,7 +59,14 @@ void iterate (double tmax, vector<particle> particles, ostream & output)
 		{
 			outer->x += tnext * outer->v;
 		}
-		*collider << *collidee;
+		collider = colliders.begin();
+		collidee = collidees.begin();
+		while(collider !=colliders.end() && collidee != collidees.end())
+		{
+			**collider << **collidee;
+			collider ++;
+			collidee ++;
+		}
 	}
 }
 

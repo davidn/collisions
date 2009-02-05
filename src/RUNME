@@ -8,6 +8,6 @@ END
 
 ./gas -s $RANDOM 10 1 0 -1 1 2 >> /tmp/bodies
 
-./collisions < /tmp/bodies > /tmp/collisions
+./collisions -t 10 < /tmp/bodies > /tmp/collisions
 
 ./plot

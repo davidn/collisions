@@ -4,7 +4,9 @@ Copyright (c) 2009, David Newgas <dn271@cam.ac.uk>
 Collisions consists of several programs for simulating 1D elastic particle
 collisions.
 
-The programs must be compiled, to do this run
+The programs must be compiled, if you are compiling from git run
+./autogen.sh && make
+if you are compiling from a distributed tarball run
 ./configure && make
 
 the main program is `collisions` it takes as input a set of bodies and outputs
@@ -27,4 +29,5 @@ the file /tmp/bar.
 
 the program `RUNME` is an overall example session.  It creates a random 10
 particle gas between two walls, and simulates them and plots them over 10
-seconds.
+seconds.  RUNME expects to be run from the src directory of the collision
+sources.

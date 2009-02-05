@@ -53,6 +53,6 @@ int main(int argc, char ** argv)
 	speed = atof(argv[optind++]);
 	while(number --)
 	{
-		cout << mass << ' ' << radius << ' ' << (start + (double)rand() * (end-start) / (double)RAND_MAX ) << ' ' << ((rand()&1)?-1:1)*speed << endl;
+		cout << mass << ' ' << radius << ' ' << start + (double)rand() * (end-start) / RAND_MAX << ' ' << ((rand()&1)?-1:1)*speed << endl;
 	}
 }
